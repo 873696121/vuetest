@@ -1,33 +1,36 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import App from "@/App";
-import PageOne from "@/views/PageOne";
-import PageTwo from "@/views/PageTwo";
-import PageThree from "@/views/PageThree";
-import PageFour from "@/views/PageFour";
 import Index from "@/views/Index";
+import BookManage from "@/views/BookManage";
+import AddBook from "@/views/AddBook";
+import Update from "@/views/Update";
 
 Vue.use(VueRouter)
 
 const routes = [
   {
+    show: true,
     path: "/",
     name: "图书管理",
     component: Index,
-    redirect: '/pageOne',
+    redirect: '/BookManage',
     children: [
       {
-        path: '/pageOne',
+        path: '/BookManage',
         name: "查询图书",
-        component: PageOne
+        component: BookManage
       },
       {
-        path: '/pageTwo',
+        path: '/AddBook',
         name: "添加图书",
-        component: PageTwo
+        component: AddBook
       }
     ]
+  },
+  {
+    show: false,
+    path: "/Update",
+    component: Update
   }
 
 ]
